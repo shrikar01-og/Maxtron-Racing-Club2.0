@@ -1,30 +1,111 @@
 /* =========================================================================
-   MAXTRON RACING CLUB — MAIN SITE SCRIPT (index.html)
+   MAXTRON RACING CLUB — MAIN SITE SCRIPT
    ========================================================================= */
 
 (function () {
+
   const C = window.SITE_CONTENT;
 
   if (!C) {
-    console.error("MAXTRON: SITE_CONTENT not found. Check js/content.js");
+    console.error("MAXTRON ERROR: SITE_CONTENT not loaded.");
     return;
   }
+
 
   /* =========================================================================
      HELPERS
      ========================================================================= */
 
-  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $ = (selector, context = document) =>
+    context.querySelector(selector);
 
-  const $$ = (sel, ctx = document) =>
-    Array.from(ctx.querySelectorAll(sel));
+  const $$ = (selector, context = document) =>
+    Array.from(context.querySelectorAll(selector));
+
+
+  /* =========================================================================
+     FIXED TEAM DATA
+     ========================================================================= */
+
+  /*
+    IMPORTANT:
+
+    Team order is hardcoded here.
+
+    ROW 1
+    1 Faculty
+    2 Captain
+    3 Vice Captain
+    4 Chassis
+
+    ROW 2
+    5 Media
+    6 Powertrain + Suspension/Braking
+    7 Electronics
+    8 Sponsorship
+  */
+
+  const FIXED_TEAM = [
+
+    {
+      name: "Mahantayya K. Hiremath",
+      role: "Faculty In-charge",
+      initials: "MKH"
+    },
+
+    {
+      name: "Anish Madhukar",
+      role: "Captain",
+      initials: "AM"
+    },
+
+    {
+      name: "Dhruva R Naik",
+      role: "Vice Captain",
+      initials: "DN"
+    },
+
+    {
+      name: "Sankeerth Issax",
+      role: "Chassis & Frame Lead",
+      initials: "SI"
+    },
+
+    {
+      name: "N Sai Pracheet Reddy",
+      role: "Media and Marketing",
+      initials: "NSP"
+    },
+
+    {
+      name: "Dhruva R Naik",
+      role: "Powertrain & Suspension/Braking Lead",
+      initials: "DN"
+    },
+
+    {
+      name: "Yatin A Sai",
+      role: "Electronics Lead",
+      initials: "YS"
+    },
+
+    {
+      name: "Varun V",
+      role: "Sponsorship",
+      initials: "VV"
+    }
+
+  ];
 
 
   /* =========================================================================
      DOM READY
      ========================================================================= */
 
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", function () {
+
+    console.log("MAXTRON MAIN.JS LOADED — FIXED TEAM VERSION");
+
     initHeader();
 
     renderTimeline();
@@ -36,108 +117,147 @@
     initStatsCounter();
 
     init3DTilt();
+
   });
 
 
   /* =========================================================================
-     HEADER / NAVIGATION
+     HEADER
      ========================================================================= */
 
   function initHeader() {
+
     const header = $("#siteHeader");
+
     const navToggle = $("#navToggle");
+
     const mainNav = $("#mainNav");
 
-    if (!header) return;
+
+    if (!header) {
+      return;
+    }
 
 
-    /* -------------------------------------------------------------------------
-       Header Scroll Effect
-       ------------------------------------------------------------------------- */
+    /* -----------------------------------------------------------------------
+       Scroll Header
+       ----------------------------------------------------------------------- */
 
-    window.addEventListener("scroll", () => {
+    window.addEventListener("scroll", function () {
+
       if (window.scrollY > 50) {
+
         header.classList.add("scrolled");
+
       } else {
+
         header.classList.remove("scrolled");
+
       }
 
+
       trackActiveNavSection();
+
     });
 
 
-    /* -------------------------------------------------------------------------
-       Mobile Navigation
-       ------------------------------------------------------------------------- */
+    /* -----------------------------------------------------------------------
+       Mobile Menu
+       ----------------------------------------------------------------------- */
 
     if (navToggle && mainNav) {
-      navToggle.addEventListener("click", () => {
+
+      navToggle.addEventListener("click", function () {
+
         const isExpanded =
           navToggle.getAttribute("aria-expanded") === "true";
+
 
         navToggle.setAttribute(
           "aria-expanded",
           String(!isExpanded)
         );
 
+
         mainNav.classList.toggle("open");
+
       });
+
     }
 
 
-    /* -------------------------------------------------------------------------
-       Close Mobile Menu After Clicking Link
-       ------------------------------------------------------------------------- */
+    /* -----------------------------------------------------------------------
+       Close menu after clicking link
+       ----------------------------------------------------------------------- */
 
-    $$("#navLinks a").forEach((a) => {
-      a.addEventListener("click", () => {
+    $$("#navLinks a").forEach(function (link) {
+
+      link.addEventListener("click", function () {
+
         if (navToggle) {
+
           navToggle.setAttribute(
             "aria-expanded",
             "false"
           );
+
         }
 
+
         if (mainNav) {
+
           mainNav.classList.remove("open");
+
         }
+
       });
+
     });
+
   }
 
 
   /* =========================================================================
-     ACTIVE NAV SECTION
+     ACTIVE NAVIGATION SECTION
      ========================================================================= */
 
   function trackActiveNavSection() {
+
     const scrollPos =
       window.scrollY + 100;
+
 
     const sections =
       $$("section[id]");
 
+
     const navLinks =
       $$("#navLinks a");
+
 
     let currentSectionId = "";
 
 
-    sections.forEach((sec) => {
+    sections.forEach(function (section) {
+
       const top =
-        sec.offsetTop;
+        section.offsetTop;
+
 
       const height =
-        sec.offsetHeight;
+        section.offsetHeight;
 
 
       if (
         scrollPos >= top &&
         scrollPos < top + height
       ) {
+
         currentSectionId =
-          sec.getAttribute("id");
+          section.getAttribute("id");
+
       }
+
     });
 
 
@@ -146,16 +266,22 @@
     }
 
 
-    navLinks.forEach((a) => {
-      a.classList.remove("active");
+    navLinks.forEach(function (link) {
+
+      link.classList.remove("active");
+
 
       if (
-        a.getAttribute("href") ===
-        `#${currentSectionId}`
+        link.getAttribute("href") ===
+        "#" + currentSectionId
       ) {
-        a.classList.add("active");
+
+        link.classList.add("active");
+
       }
+
     });
+
   }
 
 
@@ -164,53 +290,69 @@
      ========================================================================= */
 
   function renderTimeline() {
+
     const flow =
       $("#timelineFlow");
+
 
     if (!flow) {
       return;
     }
 
 
-    if (
-      !Array.isArray(C.timeline)
-    ) {
+    if (!Array.isArray(C.timeline)) {
+
       console.error(
-        "MAXTRON: timeline data missing."
+        "MAXTRON ERROR: Timeline data missing"
       );
 
       return;
+
     }
 
 
     flow.innerHTML = "";
 
 
-    C.timeline.forEach((node) => {
+    C.timeline.forEach(function (node) {
+
       const div =
         document.createElement("div");
+
 
       div.className =
         "timeline-node";
 
 
       div.innerHTML = `
+
         <div class="timeline-year">
+
           ${node.year}
+
         </div>
 
+
         <h4 class="timeline-node-title">
+
           ${node.title}
+
         </h4>
 
+
         <p class="timeline-node-desc">
+
           ${node.desc}
+
         </p>
+
       `;
 
 
       flow.appendChild(div);
+
     });
+
   }
 
 
@@ -219,57 +361,73 @@
      ========================================================================= */
 
   function renderDomains() {
+
     const grid =
       $("#domainsGrid");
+
 
     if (!grid) {
       return;
     }
 
 
-    if (
-      !Array.isArray(C.domains)
-    ) {
+    if (!Array.isArray(C.domains)) {
+
       console.error(
-        "MAXTRON: domains data missing."
+        "MAXTRON ERROR: Domain data missing"
       );
 
       return;
+
     }
 
 
     grid.innerHTML = "";
 
 
-    C.domains.forEach((d) => {
+    C.domains.forEach(function (domain) {
+
       const card =
         document.createElement("div");
+
 
       card.className =
         "domain-card glass-panel tilt-element";
 
 
       card.innerHTML = `
+
         <div class="domain-card-inner">
 
           <div class="domain-icon">
-            ${d.icon}
+
+            ${domain.icon}
+
           </div>
 
+
           <h3>
-            ${d.title}
+
+            ${domain.title}
+
           </h3>
 
+
           <p>
-            ${d.desc}
+
+            ${domain.desc}
+
           </p>
 
         </div>
+
       `;
 
 
       grid.appendChild(card);
+
     });
+
   }
 
 
@@ -278,166 +436,124 @@
      ========================================================================= */
 
   function renderTeam() {
+
     const grid =
       $("#teamGrid");
 
 
     if (!grid) {
+
       console.error(
-        "MAXTRON: #teamGrid not found."
+        "MAXTRON ERROR: #teamGrid not found."
       );
 
       return;
+
     }
 
 
-    if (
-      !Array.isArray(C.team)
-    ) {
-      console.error(
-        "MAXTRON: team data missing."
-      );
+    /*
+      IMPORTANT:
 
-      return;
-    }
+      We completely ignore C.team here.
+
+      Website will ONLY use FIXED_TEAM.
+    */
 
 
     grid.innerHTML = "";
 
 
-    /*
-      ==============================================================
-      FORCED TEAM ORDER
-
-      1. Faculty In-charge
-      2. Captain
-      3. Vice Captain
-      4. Chassis & Frame Lead
-      5. Media and Marketing
-      6. Powertrain & Suspension/Braking Lead
-      7. Electronics Lead
-      8. Sponsorship
-
-      Sponsorship will ALWAYS stay last.
-      ==============================================================
-    */
-
-
-    const roleOrder = {
-      "Faculty In-charge": 1,
-
-      "Captain": 2,
-
-      "Vice Captain": 3,
-
-      "Chassis & Frame Lead": 4,
-
-      "Media and Marketing": 5,
-
-      "Powertrain & Suspension/Braking Lead": 6,
-
-      "Electronics Lead": 7,
-
-      "Sponsorship": 8
-    };
-
-
-    /*
-      Clone the array before sorting so
-      original SITE_CONTENT is not modified.
-    */
-
-    const orderedTeam =
-      [...C.team].sort((a, b) => {
-
-        const orderA =
-          roleOrder[a.role] ?? 999;
-
-        const orderB =
-          roleOrder[b.role] ?? 999;
-
-
-        return orderA - orderB;
-      });
-
-
-    /*
-      Debug output.
-
-      Open:
-      F12 → Console
-
-      You should see:
-      Faculty
-      Captain
-      Vice Captain
-      Chassis
-      Media
-      Technical
-      Electronics
-      Sponsorship
-    */
+    console.log(
+      "=============================="
+    );
 
     console.log(
-      "MAXTRON TEAM ORDER:"
+      "MAXTRON FIXED TEAM ORDER"
+    );
+
+    console.log(
+      "=============================="
     );
 
 
-    orderedTeam.forEach(
-      (member, index) => {
+    FIXED_TEAM.forEach(function (
+      member,
+      index
+    ) {
 
-        console.log(
-          `${index + 1}. ${member.name} — ${member.role}`
-        );
-
-      }
-    );
-
-
-    /*
-      Create Team Cards
-    */
-
-    orderedTeam.forEach(
-      (member) => {
-
-        const card =
-          document.createElement("div");
+      console.log(
+        (index + 1) +
+        ". " +
+        member.name +
+        " — " +
+        member.role
+      );
 
 
-        card.className =
-          "team-card glass-panel tilt-element";
+      const card =
+        document.createElement("div");
 
 
-        card.innerHTML = `
+      card.className =
+        "team-card glass-panel tilt-element";
 
-          <div class="team-image-area">
 
-            <div class="team-avatar-placeholder">
-              ${member.initials}
-            </div>
+      /*
+        Add a position attribute.
+
+        Useful for debugging.
+      */
+
+      card.setAttribute(
+        "data-team-position",
+        index + 1
+      );
+
+
+      card.innerHTML = `
+
+        <div class="team-image-area">
+
+          <div class="team-avatar-placeholder">
+
+            ${member.initials}
 
           </div>
 
-
-          <div class="team-info">
-
-            <h3 class="team-name">
-              ${member.name}
-            </h3>
-
-            <span class="team-role">
-              ${member.role}
-            </span>
-
-          </div>
-
-        `;
+        </div>
 
 
-        grid.appendChild(card);
-      }
+        <div class="team-info">
+
+          <h3 class="team-name">
+
+            ${member.name}
+
+          </h3>
+
+
+          <span class="team-role">
+
+            ${member.role}
+
+          </span>
+
+        </div>
+
+      `;
+
+
+      grid.appendChild(card);
+
+    });
+
+
+    console.log(
+      "Team cards rendered:",
+      grid.children.length
     );
+
   }
 
 
@@ -446,13 +562,12 @@
      ========================================================================= */
 
   function initStatsCounter() {
+
     const stats =
       $$(".stat-num");
 
 
-    if (
-      stats.length === 0
-    ) {
+    if (stats.length === 0) {
       return;
     }
 
@@ -460,10 +575,10 @@
     const observer =
       new IntersectionObserver(
 
-        (entries) => {
+        function (entries) {
 
           entries.forEach(
-            (entry) => {
+            function (entry) {
 
               if (
                 entry.isIntersecting
@@ -505,6 +620,7 @@
                 observer.unobserve(
                   target
                 );
+
               }
 
             }
@@ -519,10 +635,12 @@
       );
 
 
-    stats.forEach(
-      (s) =>
-        observer.observe(s)
-    );
+    stats.forEach(function (stat) {
+
+      observer.observe(stat);
+
+    });
+
   }
 
 
@@ -531,8 +649,8 @@
      ========================================================================= */
 
   function animateCounter(
-    el,
-    finalVal,
+    element,
+    finalValue,
     isPlus
   ) {
 
@@ -564,23 +682,21 @@
 
       const current =
         Math.floor(
-          ease * finalVal
+          ease * finalValue
         );
 
 
-      el.textContent =
+      element.textContent =
         current +
         (
           isPlus &&
-          current === finalVal
+          current === finalValue
             ? "+"
             : ""
         );
 
 
-      if (
-        progress < 1
-      ) {
+      if (progress < 1) {
 
         requestAnimationFrame(
           update
@@ -588,8 +704,8 @@
 
       } else {
 
-        el.textContent =
-          finalVal +
+        element.textContent =
+          finalValue +
           (
             isPlus
               ? "+"
@@ -597,12 +713,14 @@
           );
 
       }
+
     }
 
 
     requestAnimationFrame(
       update
     );
+
   }
 
 
@@ -614,29 +732,24 @@
 
     document.addEventListener(
       "mousemove",
-      (e) => {
+      function (event) {
 
         const target =
-          e.target.closest(
+          event.target.closest(
             ".tilt-element"
           );
 
 
-        /*
-          Reset cards when cursor
-          isn't over a tilt element.
-        */
-
         if (!target) {
 
           $$(".tilt-element").forEach(
-            (el) => {
+            function (element) {
 
-              el.style.transform =
+              element.style.transform =
                 "rotateX(0deg) rotateY(0deg) translateZ(0px)";
 
 
-              el.style.boxShadow =
+              element.style.boxShadow =
                 "";
 
             }
@@ -644,6 +757,7 @@
 
 
           return;
+
         }
 
 
@@ -652,13 +766,13 @@
 
 
         const x =
-          e.clientX -
+          event.clientX -
           rect.left -
           rect.width / 2;
 
 
         const y =
-          e.clientY -
+          event.clientY -
           rect.top -
           rect.height / 2;
 
@@ -684,40 +798,54 @@
 
 
         target.style.transform =
-          `perspective(1000px)
-           rotateX(${tiltX.toFixed(2)}deg)
-           rotateY(${tiltY.toFixed(2)}deg)
-           translateZ(5px)`;
+
+          "perspective(1000px) " +
+
+          "rotateX(" +
+          tiltX.toFixed(2) +
+          "deg) " +
+
+          "rotateY(" +
+          tiltY.toFixed(2) +
+          "deg) " +
+
+          "translateZ(5px)";
 
 
         const glowColor =
           target.classList.contains(
             "domain-card"
           )
+
             ? "rgba(0, 210, 255, 0.15)"
+
             : "rgba(15, 90, 204, 0.15)";
 
 
         target.style.boxShadow =
-          `${-tiltY * 0.8}px
-           ${tiltX * 0.8}px
-           25px
-           ${glowColor}`;
+
+          (-tiltY * 0.8) +
+          "px " +
+
+          (tiltX * 0.8) +
+          "px 25px " +
+
+          glowColor;
 
       }
     );
 
 
-    /* -------------------------------------------------------------------------
-       Reset Tilt
-       ------------------------------------------------------------------------- */
+    /* -----------------------------------------------------------------------
+       Reset tilt
+       ----------------------------------------------------------------------- */
 
     document.addEventListener(
       "mouseout",
-      (e) => {
+      function (event) {
 
         const target =
-          e.target.closest(
+          event.target.closest(
             ".tilt-element"
           );
 
@@ -735,6 +863,7 @@
 
       }
     );
+
   }
 
 
