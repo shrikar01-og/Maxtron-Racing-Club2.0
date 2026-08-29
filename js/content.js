@@ -75,7 +75,7 @@ window.SITE_CONTENT = {
 
   team: [
     { name: "Mahantayya K. Hiremath", role: "Faculty In-charge", image: "assets/images/team_faculty.png", initials: "MKH" },
-    { name: "Dhruva Naik", role: "Vice Captain", image: "assets/images/team_rep.png", initials: "DN" },
+    { name: "Dhruva Naik", role: "Vice Captain", image: "assets/images/team_rep.png", initials: "VC" },
     { name: "N Sai Pracheet Reddy", role: "Media and Marketing", image: "assets/images/team_managing.png", initials: "NSP" },
     { name: "Sankeerth Issax", role: "Chassis & Frame Lead", image: "assets/images/team_chassis.png", initials: "CF" },
     { name: "Anish", role: "Captain", image: "assets/images/team_powertrain.png", initials: "C" },
