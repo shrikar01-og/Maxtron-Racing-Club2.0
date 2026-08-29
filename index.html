@@ -347,14 +347,125 @@
     </div>
   </footer>
 
- <!-- Three.js CDN -->
+<!-- Three.js CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <!-- Project Scripts -->
-<script src="js/content.js?v=999999"></script>
-<script src="js/three-scene.js?v=999999"></script>
-<script src="js/main.js?v=999999"></script>
-<script src="js/cursor-light.js?v=999999"></script>
+<script src="js/content.js?v=FINAL100"></script>
+<script src="js/three-scene.js?v=FINAL100"></script>
+<script src="js/main.js?v=FINAL100"></script>
+<script src="js/cursor-light.js?v=FINAL100"></script>
+
+<!-- =========================================================
+     ABSOLUTE FINAL TEAM ORDER OVERRIDE
+     ========================================================= -->
+<script>
+window.addEventListener("load", function () {
+
+    console.log("🔥 MAXTRON FINAL TEAM OVERRIDE LOADED 🔥");
+
+    const grid = document.getElementById("teamGrid");
+
+    if (!grid) {
+        console.error("teamGrid not found!");
+        return;
+    }
+
+    const team = [
+        {
+            name: "Mahantayya K. Hiremath",
+            role: "Faculty In-charge",
+            initials: "MKH"
+        },
+        {
+            name: "Anish Madhukar",
+            role: "Captain",
+            initials: "AM"
+        },
+        {
+            name: "Dhruva R Naik",
+            role: "Vice Captain",
+            initials: "DN"
+        },
+        {
+            name: "Sankeerth Issax",
+            role: "Chassis & Frame Lead",
+            initials: "SI"
+        },
+        {
+            name: "N Sai Pracheet Reddy",
+            role: "Media and Marketing",
+            initials: "NSP"
+        },
+        {
+            name: "Dhruva R Naik",
+            role: "Powertrain & Suspension/Braking Lead",
+            initials: "DN"
+        },
+        {
+            name: "Yatin A Sai",
+            role: "Electronics Lead",
+            initials: "YS"
+        },
+        {
+            name: "Varun V",
+            role: "Sponsorship",
+            initials: "VV"
+        }
+    ];
+
+    grid.innerHTML = "";
+
+    team.forEach(function(member, index) {
+
+        const card = document.createElement("div");
+
+        card.className = "team-card glass-panel tilt-element";
+
+        card.setAttribute(
+            "data-final-position",
+            index + 1
+        );
+
+        card.innerHTML = `
+            <div class="team-image-area">
+
+                <div class="team-avatar-placeholder">
+                    ${member.initials}
+                </div>
+
+            </div>
+
+            <div class="team-info">
+
+                <h3 class="team-name">
+                    ${member.name}
+                </h3>
+
+                <span class="team-role">
+                    ${member.role}
+                </span>
+
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+
+    console.log("✅ FINAL TEAM ORDER:");
+
+    team.forEach(function(member, index) {
+        console.log(
+            (index + 1) +
+            ". " +
+            member.name +
+            " — " +
+            member.role
+        );
+    });
+
+});
+</script>
 
 </body>
 </html>
