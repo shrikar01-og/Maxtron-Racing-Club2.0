@@ -11,7 +11,6 @@
     return;
   }
 
-
   /* =========================================================================
      HELPERS
      ========================================================================= */
@@ -24,87 +23,12 @@
 
 
   /* =========================================================================
-     FIXED TEAM DATA
-     ========================================================================= */
-
-  /*
-    IMPORTANT:
-
-    Team order is hardcoded here.
-
-    ROW 1
-    1 Faculty
-    2 Captain
-    3 Vice Captain
-    4 Chassis
-
-    ROW 2
-    5 Media
-    6 Powertrain + Suspension/Braking
-    7 Electronics
-    8 Sponsorship
-  */
-
-  const FIXED_TEAM = [
-
-    {
-      name: "Mahantayya K. Hiremath",
-      role: "Faculty In-charge",
-      initials: "MKH"
-    },
-
-    {
-      name: "Anish Madhukar",
-      role: "Captain",
-      initials: "AM"
-    },
-
-    {
-      name: "Dhruva R Naik",
-      role: "Vice Captain",
-      initials: "DN"
-    },
-
-    {
-      name: "Sankeerth Issax",
-      role: "Chassis & Frame Lead",
-      initials: "SI"
-    },
-
-    {
-      name: "N Sai Pracheet Reddy",
-      role: "Media and Marketing",
-      initials: "NSP"
-    },
-
-    {
-      name: "Dhruva R Naik",
-      role: "Powertrain & Suspension/Braking Lead",
-      initials: "DN"
-    },
-
-    {
-      name: "Yatin A Sai",
-      role: "Electronics Lead",
-      initials: "YS"
-    },
-
-    {
-      name: "Varun V",
-      role: "Sponsorship",
-      initials: "VV"
-    }
-
-  ];
-
-
-  /* =========================================================================
      DOM READY
      ========================================================================= */
 
   document.addEventListener("DOMContentLoaded", function () {
 
-    console.log("MAXTRON MAIN.JS LOADED — FIXED TEAM VERSION");
+    console.log("MAXTRON MAIN.JS LOADED");
 
     initHeader();
 
@@ -112,7 +36,13 @@
 
     renderDomains();
 
-    renderTeam();
+    /*
+      IMPORTANT:
+      TEAM IS NOT RENDERED BY JAVASCRIPT ANYMORE.
+
+      Team cards are directly written inside index.html.
+      This prevents any content.js / sorting / rendering issue.
+    */
 
     initStatsCounter();
 
@@ -128,20 +58,15 @@
   function initHeader() {
 
     const header = $("#siteHeader");
-
     const navToggle = $("#navToggle");
-
     const mainNav = $("#mainNav");
-
 
     if (!header) {
       return;
     }
 
 
-    /* -----------------------------------------------------------------------
-       Scroll Header
-       ----------------------------------------------------------------------- */
+    /* Header scroll effect */
 
     window.addEventListener("scroll", function () {
 
@@ -155,15 +80,12 @@
 
       }
 
-
       trackActiveNavSection();
 
     });
 
 
-    /* -----------------------------------------------------------------------
-       Mobile Menu
-       ----------------------------------------------------------------------- */
+    /* Mobile navigation */
 
     if (navToggle && mainNav) {
 
@@ -172,12 +94,10 @@
         const isExpanded =
           navToggle.getAttribute("aria-expanded") === "true";
 
-
         navToggle.setAttribute(
           "aria-expanded",
           String(!isExpanded)
         );
-
 
         mainNav.classList.toggle("open");
 
@@ -186,9 +106,7 @@
     }
 
 
-    /* -----------------------------------------------------------------------
-       Close menu after clicking link
-       ----------------------------------------------------------------------- */
+    /* Close mobile menu after link click */
 
     $$("#navLinks a").forEach(function (link) {
 
@@ -202,7 +120,6 @@
           );
 
         }
-
 
         if (mainNav) {
 
@@ -226,14 +143,11 @@
     const scrollPos =
       window.scrollY + 100;
 
-
     const sections =
       $$("section[id]");
 
-
     const navLinks =
       $$("#navLinks a");
-
 
     let currentSectionId = "";
 
@@ -243,10 +157,8 @@
       const top =
         section.offsetTop;
 
-
       const height =
         section.offsetHeight;
-
 
       if (
         scrollPos >= top &&
@@ -269,7 +181,6 @@
     navLinks.forEach(function (link) {
 
       link.classList.remove("active");
-
 
       if (
         link.getAttribute("href") ===
@@ -294,11 +205,9 @@
     const flow =
       $("#timelineFlow");
 
-
     if (!flow) {
       return;
     }
-
 
     if (!Array.isArray(C.timeline)) {
 
@@ -310,7 +219,6 @@
 
     }
 
-
     flow.innerHTML = "";
 
 
@@ -319,35 +227,24 @@
       const div =
         document.createElement("div");
 
-
       div.className =
         "timeline-node";
-
 
       div.innerHTML = `
 
         <div class="timeline-year">
-
           ${node.year}
-
         </div>
 
-
         <h4 class="timeline-node-title">
-
           ${node.title}
-
         </h4>
 
-
         <p class="timeline-node-desc">
-
           ${node.desc}
-
         </p>
 
       `;
-
 
       flow.appendChild(div);
 
@@ -365,11 +262,9 @@
     const grid =
       $("#domainsGrid");
 
-
     if (!grid) {
       return;
     }
-
 
     if (!Array.isArray(C.domains)) {
 
@@ -381,7 +276,6 @@
 
     }
 
-
     grid.innerHTML = "";
 
 
@@ -390,169 +284,32 @@
       const card =
         document.createElement("div");
 
-
       card.className =
         "domain-card glass-panel tilt-element";
-
 
       card.innerHTML = `
 
         <div class="domain-card-inner">
 
           <div class="domain-icon">
-
             ${domain.icon}
-
           </div>
 
-
           <h3>
-
             ${domain.title}
-
           </h3>
 
-
           <p>
-
             ${domain.desc}
-
           </p>
 
         </div>
 
       `;
 
-
       grid.appendChild(card);
 
     });
-
-  }
-
-
-  /* =========================================================================
-     TEAM
-     ========================================================================= */
-
-  function renderTeam() {
-
-    const grid =
-      $("#teamGrid");
-
-
-    if (!grid) {
-
-      console.error(
-        "MAXTRON ERROR: #teamGrid not found."
-      );
-
-      return;
-
-    }
-
-
-    /*
-      IMPORTANT:
-
-      We completely ignore C.team here.
-
-      Website will ONLY use FIXED_TEAM.
-    */
-
-
-    grid.innerHTML = "";
-
-
-    console.log(
-      "=============================="
-    );
-
-    console.log(
-      "MAXTRON FIXED TEAM ORDER"
-    );
-
-    console.log(
-      "=============================="
-    );
-
-
-    FIXED_TEAM.forEach(function (
-      member,
-      index
-    ) {
-
-      console.log(
-        (index + 1) +
-        ". " +
-        member.name +
-        " — " +
-        member.role
-      );
-
-
-      const card =
-        document.createElement("div");
-
-
-      card.className =
-        "team-card glass-panel tilt-element";
-
-
-      /*
-        Add a position attribute.
-
-        Useful for debugging.
-      */
-
-      card.setAttribute(
-        "data-team-position",
-        index + 1
-      );
-
-
-      card.innerHTML = `
-
-        <div class="team-image-area">
-
-          <div class="team-avatar-placeholder">
-
-            ${member.initials}
-
-          </div>
-
-        </div>
-
-
-        <div class="team-info">
-
-          <h3 class="team-name">
-
-            ${member.name}
-
-          </h3>
-
-
-          <span class="team-role">
-
-            ${member.role}
-
-          </span>
-
-        </div>
-
-      `;
-
-
-      grid.appendChild(card);
-
-    });
-
-
-    console.log(
-      "Team cards rendered:",
-      grid.children.length
-    );
 
   }
 
@@ -565,7 +322,6 @@
 
     const stats =
       $$(".stat-num");
-
 
     if (stats.length === 0) {
       return;
@@ -587,21 +343,17 @@
                 const target =
                   entry.target;
 
-
                 const targetNumStr =
                   target.getAttribute(
                     "data-target"
                   );
 
-
                 if (!targetNumStr) {
                   return;
                 }
 
-
                 const isPlus =
                   targetNumStr.includes("+");
-
 
                 const finalVal =
                   parseInt(
@@ -609,13 +361,11 @@
                     10
                   );
 
-
                 animateCounter(
                   target,
                   finalVal,
                   isPlus
                 );
-
 
                 observer.unobserve(
                   target
@@ -657,7 +407,6 @@
     const duration =
       1500;
 
-
     const startTime =
       performance.now();
 
@@ -667,24 +416,20 @@
       const elapsed =
         now - startTime;
 
-
       const progress =
         Math.min(
           elapsed / duration,
           1
         );
 
-
       const ease =
         progress *
         (2 - progress);
-
 
       const current =
         Math.floor(
           ease * finalValue
         );
-
 
       element.textContent =
         current +
@@ -715,7 +460,6 @@
       }
 
     }
-
 
     requestAnimationFrame(
       update
@@ -748,13 +492,11 @@
               element.style.transform =
                 "rotateX(0deg) rotateY(0deg) translateZ(0px)";
 
-
               element.style.boxShadow =
                 "";
 
             }
           );
-
 
           return;
 
@@ -764,22 +506,18 @@
         const rect =
           target.getBoundingClientRect();
 
-
         const x =
           event.clientX -
           rect.left -
           rect.width / 2;
-
 
         const y =
           event.clientY -
           rect.top -
           rect.height / 2;
 
-
         const maxTilt =
           12;
-
 
         const tiltX =
           -(
@@ -787,7 +525,6 @@
             (rect.height / 2)
           ) *
           maxTilt;
-
 
         const tiltY =
           (
@@ -836,9 +573,7 @@
     );
 
 
-    /* -----------------------------------------------------------------------
-       Reset tilt
-       ----------------------------------------------------------------------- */
+    /* Reset tilt */
 
     document.addEventListener(
       "mouseout",
@@ -849,12 +584,10 @@
             ".tilt-element"
           );
 
-
         if (target) {
 
           target.style.transform =
             "rotateX(0deg) rotateY(0deg) translateZ(0px)";
-
 
           target.style.boxShadow =
             "";
