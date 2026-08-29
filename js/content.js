@@ -75,13 +75,13 @@ window.SITE_CONTENT = {
 
   team: [
     { name: "Mahantayya K. Hiremath", role: "Faculty In-charge", image: "assets/images/team_faculty.png", initials: "MKH" },
-    { name: "Dhruva Naik", role: "Club Representative", image: "assets/images/team_rep.png", initials: "DN" },
+    { name: "Anish Madhukar", role: "Captain", image: "assets/images/team_captain.png", initials: "AM" },
+    { name: "Dhruva R Naik", role: "Vice Captain", image: "assets/images/team_rep.png", initials: "DN" },
+    { name: "Sankeerth Issax", role: "Chassis & Frame Lead", image: "assets/images/team_chassis.png", initials: "SI" },
     { name: "N Sai Pracheet Reddy", role: "Media and Marketing", image: "assets/images/team_managing.png", initials: "NSP" },
-    { name: "Sankeerth Issax", role: "Chassis & Frame Lead", image: "assets/images/team_chassis.png", initials: "CF" },
-    { name: "Team Member", role: "Powertrain Lead", image: "assets/images/team_powertrain.png", initials: "PT" },
-    { name: "Team Member", role: "Suspension & Braking Lead", image: "assets/images/team_susp.png", initials: "SB" },
-    { name: "Yatin A Sai", role: "Electronics Lead", image: "assets/images/team_elec.png", initials: "EL" },
-    { name: "Team Member", role: "Manufacturing Lead", image: "assets/images/team_mfg.png", initials: "MF" }
+    { name: "Dhruva R Naik", role: "Powertrain & Suspension/Braking Lead", image: "assets/images/team_susp.png", initials: "DN" },
+    { name: "Yatin A Sai", role: "Electronics Lead", image: "assets/images/team_elec.png", initials: "YS" },
+    { name: "Varun V", role: "Sponsorship", image: "assets/images/team_sponsorship.png", initials: "VV" }
   ],
 
   sponsors: [
@@ -112,14 +112,31 @@ window.SITE_CONTENT = {
     title: "Competition Development Roadmap",
     lead: "A structured roadmap — building a strong engineering foundation before progressing to international student motorcycle engineering competitions.",
     stages: [
-      { year: "2026", phase: "Design & CAD Verification", objective: "Establish 3D models, perform Finite Element Analysis (FEA) on the chassis frame, run Computational Fluid Dynamics (CFD) for the fairing structure, and finalize components layout." },
-      { year: "2027", phase: "FMAE MotoStudent (India)", objective: "Manufacture, test, and successfully compete with two Formula Moto Student prototype motorcycles while establishing the team's engineering foundation and gaining competition experience." },
-      { year: "2028 & Future", phase: "MotoStudent (Spain)", objective: "Represent NMIT on an international stage by competing against leading global universities and continuously improving the team's engineering capabilities." },
-      { year: "Long-Term", phase: "Global Motorsports Platform", objective: "Expand participation in globally recognized student motorsport events, strengthen industry collaborations, and establish MAXTRON as a sustainable, competitive motorsports program." }
+      {
+        year: "2026",
+        phase: "Design & CAD Verification",
+        objective: "Establish 3D models, perform Finite Element Analysis (FEA) on the chassis frame, run Computational Fluid Dynamics (CFD) for the fairing structure, and finalize components layout."
+      },
+      {
+        year: "2027",
+        phase: "FMAE MotoStudent (India)",
+        objective: "Manufacture, test, and successfully compete with two Formula Moto Student prototype motorcycles while establishing the team's engineering foundation and gaining competition experience."
+      },
+      {
+        year: "2028 & Future",
+        phase: "MotoStudent (Spain)",
+        objective: "Represent NMIT on an international stage by competing against leading global universities and continuously improving the team's engineering capabilities."
+      },
+      {
+        year: "Long-Term",
+        phase: "Global Motorsports Platform",
+        objective: "Expand participation in globally recognized student motorsport events, strengthen industry collaborations, and establish MAXTRON as a sustainable, competitive motorsports program."
+      }
     ]
   },
 
   specsLead: "The proposed motorcycles are being developed with a focus on performance, safety, reliability, and compliance with FMAE MotoStudent (India) regulations. Specifications may be refined during detailed design based on validation, availability, and technical partnerships.",
+
   specsNote: "Note: These specifications represent the team's preferred technical configuration. Final component selection depends on validation, sponsorship, budget approval, and competition regulations.",
 
   technicalSpecs: [
@@ -148,64 +165,107 @@ window.SITE_CONTENT = {
   regsLead: "A condensed reference to the FMAE MotoStudent Technical Rulebook (Version 5.1, released 4th April 2026) that governs our prototype build.",
 
   regulations: [
-    { title: "General Design & Dimensions", points: [
-      "Minimum width between semi-handlebar ends: 450mm",
-      "Minimum tilt angle without touching ground: 50°",
-      "Minimum ground clearance (unloaded, fully equipped): 100mm",
-      "Maximum fairing width: 600mm · Maximum saddle width: 450mm",
-      "Minimum total unladen weight (both categories): 95kg, including fluids"
-    ]},
-    { title: "Frame & Crash Protection", points: [
-      "Frame, subframe, and swingarm must be fully self-manufactured — commercial frames are forbidden",
-      "Frame must protect engine, fuel, and electrical/electronic systems in a fall",
-      "Mandatory nylon/fibre crash protectors on chassis and propulsion system"
-    ]},
-    { title: "Fairing & Mudguards", points: [
-      "All edges rounded to a minimum 1mm radius",
-      "Lower fairing must contain at least 2.5 litres of liquid in an incident",
-      "Front and rear mudguards compulsory"
-    ]},
-    { title: "Brake System", points: [
-      "Disc hydraulic brakes required, front and rear — completely independent circuits",
-      "Steel alloy discs only — carbon/ceramic and internally-ventilated discs forbidden",
-      "Anti-lock braking systems (ABS) are not allowed"
-    ]},
-    { title: "Suspension & Steering", points: [
-      "Any suspension configuration allowed — active/electronic control systems are forbidden",
-      "Adjustments must be manual (mechanical/hydraulic) only",
-      "Minimum steering turning angle: 15° on either side, with mechanical stoppers"
-    ]},
-    { title: "Rims & Tyres", points: [
-      "Rims: steel, aluminium, or magnesium only — composite rims forbidden",
-      "Slick tyres required: 110/70-17 front, 150/60-17 rear (both categories)"
-    ]},
-    { title: "Electronic Systems", points: [
-      "Traction control, ABS, and anti-wheelie systems are forbidden",
-      "Live telemetry is prohibited — data may only be downloaded during pit stops",
-      "Rider information systems on the dashboard are freely configurable"
-    ]},
-    { title: "Rider Equipment", points: [
-      "Closed-face helmet with integral chin guard — Snell, SFI, or FIA approved standards only",
-      "One-piece leather (or equivalent) suit with EN 1621-2 back and EN 1621-3 chest protectors",
-      "Leather gloves and boots with protection are mandatory"
-    ]},
-    { title: "MotoStudent Petrol Category", points: [
-      "4-stroke piston engine, 240cc–340cc total displacement",
-      "Original ECU and engine map must remain unmodified",
-      "Official fuel only: unleaded, 98 octane or less",
-      "Maximum exhaust noise: 105 dB/A at 5,000 RPM"
-    ]},
-    { title: "MotoStudent Electric Category", points: [
-      "Electric motor: ≤10kW DC, maximum 126 VDC system voltage",
-      "Mandatory Battery Management System (BMS) and Insulation Monitoring Device (IMD)",
-      "Precharge circuit required before contactor closes; galvanic separation of HV and LV systems",
-      "Charging connector must be IP-65 rated when closed; red HV warning light mandatory"
-    ]},
-    { title: "Static & Dynamic Scrutineering", points: [
-      "Structural bench test: 300kg horizontal load (front wheel), 250kg vertical load (saddle)",
-      "Brake test minimums: front shaft ≥ 0.30kN, rear shaft ≥ 0.25kN",
-      "EV insulation check: disconnection circuit must open within 30 seconds of a 50kΩ fault resistance",
-      "Dynamic Safety Check: official rider verifies start-up, braking, and cornering before race approval"
-    ]}
+    {
+      title: "General Design & Dimensions",
+      points: [
+        "Minimum width between semi-handlebar ends: 450mm",
+        "Minimum tilt angle without touching ground: 50°",
+        "Minimum ground clearance (unloaded, fully equipped): 100mm",
+        "Maximum fairing width: 600mm · Maximum saddle width: 450mm",
+        "Minimum total unladen weight (both categories): 95kg, including fluids"
+      ]
+    },
+
+    {
+      title: "Frame & Crash Protection",
+      points: [
+        "Frame, subframe, and swingarm must be fully self-manufactured — commercial frames are forbidden",
+        "Frame must protect engine, fuel, and electrical/electronic systems in a fall",
+        "Mandatory nylon/fibre crash protectors on chassis and propulsion system"
+      ]
+    },
+
+    {
+      title: "Fairing & Mudguards",
+      points: [
+        "All edges rounded to a minimum 1mm radius",
+        "Lower fairing must contain at least 2.5 litres of liquid in an incident",
+        "Front and rear mudguards compulsory"
+      ]
+    },
+
+    {
+      title: "Brake System",
+      points: [
+        "Disc hydraulic brakes required, front and rear — completely independent circuits",
+        "Steel alloy discs only — carbon/ceramic and internally-ventilated discs forbidden",
+        "Anti-lock braking systems (ABS) are not allowed"
+      ]
+    },
+
+    {
+      title: "Suspension & Steering",
+      points: [
+        "Any suspension configuration allowed — active/electronic control systems are forbidden",
+        "Adjustments must be manual (mechanical/hydraulic) only",
+        "Minimum steering turning angle: 15° on either side, with mechanical stoppers"
+      ]
+    },
+
+    {
+      title: "Rims & Tyres",
+      points: [
+        "Rims: steel, aluminium, or magnesium only — composite rims forbidden",
+        "Slick tyres required: 110/70-17 front, 150/60-17 rear (both categories)"
+      ]
+    },
+
+    {
+      title: "Electronic Systems",
+      points: [
+        "Traction control, ABS, and anti-wheelie systems are forbidden",
+        "Live telemetry is prohibited — data may only be downloaded during pit stops",
+        "Rider information systems on the dashboard are freely configurable"
+      ]
+    },
+
+    {
+      title: "Rider Equipment",
+      points: [
+        "Closed-face helmet with integral chin guard — Snell, SFI, or FIA approved standards only",
+        "One-piece leather (or equivalent) suit with EN 1621-2 back and EN 1621-3 chest protectors",
+        "Leather gloves and boots with protection are mandatory"
+      ]
+    },
+
+    {
+      title: "MotoStudent Petrol Category",
+      points: [
+        "4-stroke piston engine, 240cc–340cc total displacement",
+        "Original ECU and engine map must remain unmodified",
+        "Official fuel only: unleaded, 98 octane or less",
+        "Maximum exhaust noise: 105 dB/A at 5,000 RPM"
+      ]
+    },
+
+    {
+      title: "MotoStudent Electric Category",
+      points: [
+        "Electric motor: ≤10kW DC, maximum 126 VDC system voltage",
+        "Mandatory Battery Management System (BMS) and Insulation Monitoring Device (IMD)",
+        "Precharge circuit required before contactor closes; galvanic separation of HV and LV systems",
+        "Charging connector must be IP-65 rated when closed; red HV warning light mandatory"
+      ]
+    },
+
+    {
+      title: "Static & Dynamic Scrutineering",
+      points: [
+        "Structural bench test: 300kg horizontal load (front wheel), 250kg vertical load (saddle)",
+        "Brake test minimums: front shaft ≥ 0.30kN, rear shaft ≥ 0.25kN",
+        "EV insulation check: disconnection circuit must open within 30 seconds of a 50kΩ fault resistance",
+        "Dynamic Safety Check: official rider verifies start-up, braking, and cornering before race approval"
+      ]
+    }
   ]
 };
