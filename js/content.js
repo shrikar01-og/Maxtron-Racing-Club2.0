@@ -63,30 +63,112 @@ window.SITE_CONTENT = {
   ],
 
   domains: [
-    { icon: "🛠️", title: "Chassis & Frame", desc: "Self-manufactured tubular chassis design, triangulated frame structures, and crash-protection engineering." },
-    { icon: "⚙️", title: "Powertrain & Engine", desc: "Petrol (240–340cc 4-stroke) and Electric (≤10kW) propulsion integration, cooling, and transmission systems." },
-    { icon: "🚲", title: "Suspension & Braking", desc: "Front/rear suspension tuning, hydraulic disc brake systems, and steering geometry design." },
-    { icon: "⚡", title: "Electricals & Electronics", desc: "ECU integration, wiring, data acquisition, dashboards, and (for EV) high-voltage system safety." },
-    { icon: "🛩️", title: "Aerodynamics & Fairing", desc: "Fairing design, bodywork, wings, and aerodynamic packaging within FMAE dimensional limits." },
-    { icon: "👨‍🏭", title: "Manufacturing & Fabrication", desc: "CNC machining, TIG welding, precision fabrication, and assembly of both prototypes." },
-    { icon: "📈", title: "Vehicle Dynamics & Testing", desc: "Static scrutineering prep, dynamic safety testing, performance evaluation, and race-day tuning." },
-    { icon: "💼", title: "Management & Sponsorship", desc: "Budgeting, sponsor relations, documentation, logistics, and competition project management." }
+    {
+      icon: "🛠️",
+      title: "Chassis & Frame",
+      desc: "Self-manufactured tubular chassis design, triangulated frame structures, and crash-protection engineering."
+    },
+    {
+      icon: "⚙️",
+      title: "Powertrain & Engine",
+      desc: "Petrol (240–340cc 4-stroke) and Electric (≤10kW) propulsion integration, cooling, and transmission systems."
+    },
+    {
+      icon: "🚲",
+      title: "Suspension & Braking",
+      desc: "Front/rear suspension tuning, hydraulic disc brake systems, and steering geometry design."
+    },
+    {
+      icon: "⚡",
+      title: "Electricals & Electronics",
+      desc: "ECU integration, wiring, data acquisition, dashboards, and (for EV) high-voltage system safety."
+    },
+    {
+      icon: "🛩️",
+      title: "Aerodynamics & Fairing",
+      desc: "Fairing design, bodywork, wings, and aerodynamic packaging within FMAE dimensional limits."
+    },
+    {
+      icon: "👨‍🏭",
+      title: "Manufacturing & Fabrication",
+      desc: "CNC machining, TIG welding, precision fabrication, and assembly of both prototypes."
+    },
+    {
+      icon: "📈",
+      title: "Vehicle Dynamics & Testing",
+      desc: "Static scrutineering prep, dynamic safety testing, performance evaluation, and race-day tuning."
+    },
+    {
+      icon: "💼",
+      title: "Management & Sponsorship",
+      desc: "Budgeting, sponsor relations, documentation, logistics, and competition project management."
+    }
   ],
 
   team: [
-    { name: "Mahantayya K. Hiremath", role: "Faculty In-charge", image: "assets/images/team_faculty.png", initials: "MKH" },
-    { name: "Anish Madhukar", role: "Captain", image: "assets/images/team_captain.png", initials: "AM" },
-    { name: "Dhruva R Naik", role: "Vice Captain", image: "assets/images/team_rep.png", initials: "DN" },
-    { name: "Sankeerth Issax", role: "Chassis & Frame Lead", image: "assets/images/team_chassis.png", initials: "SI" },
-    { name: "N Sai Pracheet Reddy", role: "Media and Marketing", image: "assets/images/team_managing.png", initials: "NSP" },
-    { name: "Dhruva R Naik", role: "Powertrain & Suspension/Braking Lead", image: "assets/images/team_susp.png", initials: "DN" },
-    { name: "Yatin A Sai", role: "Electronics Lead", image: "assets/images/team_elec.png", initials: "YS" },
-    { name: "Varun V", role: "Sponsorship", image: "assets/images/team_sponsorship.png", initials: "VV" }
+    {
+      name: "Mahantayya K. Hiremath",
+      role: "Faculty In-charge",
+      image: "assets/images/team_faculty.png",
+      initials: "MKH"
+    },
+    {
+      name: "Anish Madhukar",
+      role: "Captain",
+      image: "assets/images/team_captain.png",
+      initials: "AM"
+    },
+    {
+      name: "Dhruva R Naik",
+      role: "Vice Captain",
+      image: "assets/images/team_rep.png",
+      initials: "DN"
+    },
+    {
+      name: "Sankeerth Issax",
+      role: "Chassis & Frame Lead",
+      image: "assets/images/team_chassis.png",
+      initials: "SI"
+    },
+    {
+      name: "N Sai Pracheet Reddy",
+      role: "Media and Marketing",
+      image: "assets/images/team_managing.png",
+      initials: "NSP"
+    },
+    {
+      name: "Dhruva R Naik",
+      role: "Powertrain & Suspension/Braking Lead",
+      image: "assets/images/team_susp.png",
+      initials: "DN"
+    },
+    {
+      name: "Yatin A Sai",
+      role: "Electronics Lead",
+      image: "assets/images/team_elec.png",
+      initials: "YS"
+    },
+    {
+      name: "Varun V",
+      role: "Sponsorship",
+      image: "assets/images/team_sponsorship.png",
+      initials: "VV"
+    }
   ],
 
   sponsors: [
-    { name: "Shell", logoText: "SHELL", isMajor: true, desc: "Official Principal Sponsor" },
-    { name: "Your Logo Here", logoText: "PARTNER", isMajor: false, desc: "Sponsorship Slot Available" }
+    {
+      name: "Shell",
+      logoText: "SHELL",
+      isMajor: true,
+      desc: "Official Principal Sponsor"
+    },
+    {
+      name: "Your Logo Here",
+      logoText: "PARTNER",
+      isMajor: false,
+      desc: "Sponsorship Slot Available"
+    }
   ],
 
   project: {
@@ -101,10 +183,26 @@ window.SITE_CONTENT = {
       "Built For Competition"
     ],
     pillars: [
-      { icon: "🏁", title: "Compete", desc: "Participate in FMAE MotoStudent (India) and other national events." },
-      { icon: "🌐", title: "Achieve", desc: "Compete internationally at MotoStudent (Spain) and beyond." },
-      { icon: "🎓", title: "Learn", desc: "Provide hands-on experience and skill development." },
-      { icon: "🏆", title: "Represent", desc: "Proudly represent NMIT on national and global platforms." }
+      {
+        icon: "🏁",
+        title: "Compete",
+        desc: "Participate in FMAE MotoStudent (India) and other national events."
+      },
+      {
+        icon: "🌐",
+        title: "Achieve",
+        desc: "Compete internationally at MotoStudent (Spain) and beyond."
+      },
+      {
+        icon: "🎓",
+        title: "Learn",
+        desc: "Provide hands-on experience and skill development."
+      },
+      {
+        icon: "🏆",
+        title: "Represent",
+        desc: "Proudly represent NMIT on national and global platforms."
+      }
     ]
   },
 
@@ -140,26 +238,106 @@ window.SITE_CONTENT = {
   specsNote: "Note: These specifications represent the team's preferred technical configuration. Final component selection depends on validation, sponsorship, budget approval, and competition regulations.",
 
   technicalSpecs: [
-    { category: "General", name: "Project", value: "Development of Two Identical Formula Moto Student Prototype Motorcycles" },
-    { category: "General", name: "Competition", value: "FMAE MotoStudent (India)" },
-    { category: "Powertrain", name: "Engine Platform", value: "321cc Parallel-Twin (Yamaha YZF-R3/MT-03 or Kawasaki Ninja 300 — subject to partnership)" },
-    { category: "Powertrain", name: "Cooling System", value: "Liquid Cooled" },
-    { category: "Powertrain", name: "Fuel System", value: "Electronic Fuel Injection (EFI)" },
-    { category: "Powertrain", name: "Transmission", value: "6-Speed Manual" },
-    { category: "Chassis & Aero", name: "Frame / Chassis", value: "Custom fabricated 4130 Chromoly steel tubular chassis" },
-    { category: "Chassis & Aero", name: "Swingarm", value: "Custom lightweight racing swingarm" },
-    { category: "Chassis & Aero", name: "Fairings", value: "Aerodynamic lightweight bodywork, wings within FMAE limits" },
-    { category: "Suspension & Brakes", name: "Front Suspension", value: "WP Suspension — adjustable USD forks (or equivalent)" },
-    { category: "Suspension & Brakes", name: "Rear Suspension", value: "WP Suspension — adjustable monoshock (or equivalent)" },
-    { category: "Suspension & Brakes", name: "Front / Rear Brakes", value: "Brembo / ByBre racing brake system, braided steel lines" },
-    { category: "Suspension & Brakes", name: "Tyres", value: "Pirelli racing slick tyres — 110/70-17 front, 150/60-17 rear" },
-    { category: "Suspension & Brakes", name: "Wheels", value: "17-inch lightweight alloy racing wheels" },
-    { category: "General", name: "Exhaust System", value: "Akrapovič / SC-Project / Arrow full racing exhaust (subject to partnership)" },
-    { category: "Electronics", name: "Electronics", value: "Competition-ready ECU, wiring harness, sensors & data acquisition" },
-    { category: "General", name: "Rider Safety Gear", value: "AGV Pista GP RR helmet, Alpinestars GP Tech V4 suit, gloves & boots" },
-    { category: "General", name: "Design & Simulation", value: "CAD modelling, CAE analysis, vehicle simulation" },
-    { category: "General", name: "Manufacturing", value: "CNC machining, precision fabrication, TIG welding & assembly" },
-    { category: "General", name: "Testing & Validation", value: "Static inspection, dynamic testing, performance & track validation" }
+    {
+      category: "General",
+      name: "Project",
+      value: "Development of Two Identical Formula Moto Student Prototype Motorcycles"
+    },
+    {
+      category: "General",
+      name: "Competition",
+      value: "FMAE MotoStudent (India)"
+    },
+    {
+      category: "Powertrain",
+      name: "Engine Platform",
+      value: "321cc Parallel-Twin (Yamaha YZF-R3/MT-03 or Kawasaki Ninja 300 — subject to partnership)"
+    },
+    {
+      category: "Powertrain",
+      name: "Cooling System",
+      value: "Liquid Cooled"
+    },
+    {
+      category: "Powertrain",
+      name: "Fuel System",
+      value: "Electronic Fuel Injection (EFI)"
+    },
+    {
+      category: "Powertrain",
+      name: "Transmission",
+      value: "6-Speed Manual"
+    },
+    {
+      category: "Chassis & Aero",
+      name: "Frame / Chassis",
+      value: "Custom fabricated 4130 Chromoly steel tubular chassis"
+    },
+    {
+      category: "Chassis & Aero",
+      name: "Swingarm",
+      value: "Custom lightweight racing swingarm"
+    },
+    {
+      category: "Chassis & Aero",
+      name: "Fairings",
+      value: "Aerodynamic lightweight bodywork, wings within FMAE limits"
+    },
+    {
+      category: "Suspension & Brakes",
+      name: "Front Suspension",
+      value: "WP Suspension — adjustable USD forks (or equivalent)"
+    },
+    {
+      category: "Suspension & Brakes",
+      name: "Rear Suspension",
+      value: "WP Suspension — adjustable monoshock (or equivalent)"
+    },
+    {
+      category: "Suspension & Brakes",
+      name: "Front / Rear Brakes",
+      value: "Brembo / ByBre racing brake system, braided steel lines"
+    },
+    {
+      category: "Suspension & Brakes",
+      name: "Tyres",
+      value: "Pirelli racing slick tyres — 110/70-17 front, 150/60-17 rear"
+    },
+    {
+      category: "Suspension & Brakes",
+      name: "Wheels",
+      value: "17-inch lightweight alloy racing wheels"
+    },
+    {
+      category: "General",
+      name: "Exhaust System",
+      value: "Akrapovič / SC-Project / Arrow full racing exhaust (subject to partnership)"
+    },
+    {
+      category: "Electronics",
+      name: "Electronics",
+      value: "Competition-ready ECU, wiring harness, sensors & data acquisition"
+    },
+    {
+      category: "General",
+      name: "Rider Safety Gear",
+      value: "AGV Pista GP RR helmet, Alpinestars GP Tech V4 suit, gloves & boots"
+    },
+    {
+      category: "General",
+      name: "Design & Simulation",
+      value: "CAD modelling, CAE analysis, vehicle simulation"
+    },
+    {
+      category: "General",
+      name: "Manufacturing",
+      value: "CNC machining, precision fabrication, TIG welding & assembly"
+    },
+    {
+      category: "General",
+      name: "Testing & Validation",
+      value: "Static inspection, dynamic testing, performance & track validation"
+    }
   ],
 
   regsLead: "A condensed reference to the FMAE MotoStudent Technical Rulebook (Version 5.1, released 4th April 2026) that governs our prototype build.",
@@ -175,7 +353,6 @@ window.SITE_CONTENT = {
         "Minimum total unladen weight (both categories): 95kg, including fluids"
       ]
     },
-
     {
       title: "Frame & Crash Protection",
       points: [
@@ -184,7 +361,6 @@ window.SITE_CONTENT = {
         "Mandatory nylon/fibre crash protectors on chassis and propulsion system"
       ]
     },
-
     {
       title: "Fairing & Mudguards",
       points: [
@@ -193,7 +369,6 @@ window.SITE_CONTENT = {
         "Front and rear mudguards compulsory"
       ]
     },
-
     {
       title: "Brake System",
       points: [
@@ -202,7 +377,6 @@ window.SITE_CONTENT = {
         "Anti-lock braking systems (ABS) are not allowed"
       ]
     },
-
     {
       title: "Suspension & Steering",
       points: [
@@ -211,7 +385,6 @@ window.SITE_CONTENT = {
         "Minimum steering turning angle: 15° on either side, with mechanical stoppers"
       ]
     },
-
     {
       title: "Rims & Tyres",
       points: [
@@ -219,7 +392,6 @@ window.SITE_CONTENT = {
         "Slick tyres required: 110/70-17 front, 150/60-17 rear (both categories)"
       ]
     },
-
     {
       title: "Electronic Systems",
       points: [
@@ -228,7 +400,6 @@ window.SITE_CONTENT = {
         "Rider information systems on the dashboard are freely configurable"
       ]
     },
-
     {
       title: "Rider Equipment",
       points: [
@@ -237,7 +408,6 @@ window.SITE_CONTENT = {
         "Leather gloves and boots with protection are mandatory"
       ]
     },
-
     {
       title: "MotoStudent Petrol Category",
       points: [
@@ -247,7 +417,6 @@ window.SITE_CONTENT = {
         "Maximum exhaust noise: 105 dB/A at 5,000 RPM"
       ]
     },
-
     {
       title: "MotoStudent Electric Category",
       points: [
@@ -257,7 +426,6 @@ window.SITE_CONTENT = {
         "Charging connector must be IP-65 rated when closed; red HV warning light mandatory"
       ]
     },
-
     {
       title: "Static & Dynamic Scrutineering",
       points: [
